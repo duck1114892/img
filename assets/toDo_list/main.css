@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 790px;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.7)),url(/img/7304594.jpg) no-repeat center/cover;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+    overflow: auto;
+}
+input {
+    font-size: 30px;
+    margin-right: 12px;
+    border: none;
+    border-radius: 12px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.542);
+}
+input:focus {
+    background: white;
+}
+button {
+    font-size: 30px;
+    padding: 2px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(251, 127, 127, 0.971);
+    color: white;
+}
+button:hover{
+    text-shadow: 2px 2px black;
+    background: red;
+}
+ul.todo {
+    height: 500px;
+    overflow: auto;
+}
+.todo li{
+ display: flex;
+ justify-content: space-between;
+ width: 510px;
+ margin-top: 20px;
+ font-size: 30px;
+ background:rgba(255, 255, 255, 0.542);
+ padding: 10px;
+ border-radius: 12px;
+ overflow: auto;
+ margin-right: 25px;
+}
+li.completed div{
+    text-decoration: line-through;
+    color: rgb(87, 87, 87);
+}
+li:hover {
+    background-color: white;
+    cursor: pointer;
+}
+.ti-trash:hover {
+    color: red;
+}
+.setWallpaper{
+  position: absolute;
+  top : 0px;
+  font-size: 20px;
+}
+.setWallpaper input {
+    font-size: 20px;
+    width: 100px;
+}
+.setWallpaper button {
+    font-size: 12px;
+    background: rgb(0, 0, 0);
+}
+.setWallpaper button {
+   background: red;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 12px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 12px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .header-text {
+    font-size: 90px;
+    text-align: center;
+    color: rgba(198, 220, 239, 0.608);
+    font-family: cursive;
+    text-shadow: 3px 3px black;
+  }
+  .set-wp-btn{
+    width: 90px;
+    font-size: 12px;
+    padding: auto;
+  }
+label {
+    background: rgba(0, 255, 213, 0.362);
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 12px;
+    color: white;   
+}
+label:hover {
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+    
+}

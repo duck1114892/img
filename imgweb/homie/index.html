@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Image Gallery</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+			integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9333.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9304.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9470.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9476.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9497.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9337.JPG" alt="" />
+			</div>
+			<div class="image">
+				<img src="/imgweb/homie/IMG_9433.JPG" alt="" />
+			</div>
+			<div class="image">
+			   <img src="/imgweb/homie/IMG_9605.JPG" alt="" />
+			</div>
+		
+
+		<div class="gallery">
+			<span class="control prev">
+				<i class="fas fa-chevron-left"></i>
+			</span>
+			<span class="control next">
+				<i class="fas fa-chevron-right"></i>
+			</span>
+			<div class="gallery-inner">
+				<img src="" alt="" />
+			</div>
+			<i class="fas fa-times close"></i>
+		</div>
+
+		<script>const images = document.querySelectorAll('.wrapper .image img')
+			const gallery = document.querySelector('.gallery')
+			const galleryImg = document.querySelector('.gallery-inner img')
+			const close = document.querySelector('.gallery .close')
+			
+			const next = document.querySelector('.control.next')
+			const prev = document.querySelector('.control.prev')
+			
+			let currentIndex = 0
+			
+			images.forEach((img, index) => {
+				img.addEventListener('click', () => {
+					currentIndex = index
+					showGallery()
+				})
+			})
+			
+			function showGallery() {
+				currentIndex == images.length - 1
+					? next.classList.add('hide')
+					: next.classList.remove('hide')
+			
+				currentIndex == 0 ? prev.classList.add('hide') : prev.classList.remove('hide')
+			
+				gallery.classList.add('show')
+				galleryImg.src = images[currentIndex].src
+			}
+			
+			close.addEventListener('click', () => {
+				gallery.classList.remove('show')
+			})
+			
+			next.addEventListener('click', () => {
+				currentIndex != images.length - 1 ? currentIndex++ : undefined
+				showGallery()
+			})
+			prev.addEventListener('click', () => {
+				currentIndex != 0 ? currentIndex-- : undefined
+				showGallery()
+			})
+			
+			// esc click
+			document.addEventListener('keydown', (e) => {
+				if (e.keyCode == 27) gallery.classList.remove('show')
+			})
+			</script>
+	</body>
+	<style>* {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	
+	body {
+		height: 100vh;
+		background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1) )	no-repeat center/cover;
+		display: flex;
+	}
+	
+	.wrapper {
+		width: 1200px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		margin: auto;
+	}
+	
+	.image {
+		width: 22%;
+		height: 300px;
+		overflow: hidden;
+		margin: 10px;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+	
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		transition: 0.25s;
+	}
+	
+	.image:hover img{
+		transform: scale(1.2);
+	}
+	
+	.gallery {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(0.8);
+		transition: 0.25s;
+	}
+	
+	.gallery.show {
+		opacity: 1;
+		pointer-events: auto;
+		transform: scale(1);
+	}
+	
+	.gallery-inner {
+		width: 70%;
+		height: 70%;
+		margin: auto;
+	}
+	
+	.control {
+		position: absolute;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 50px;
+		cursor: pointer;
+	}
+	
+	.prev {
+		left: 15px;
+	}
+	
+	.next {
+		right: 15px;
+	}
+	
+	.close {
+		color: white;
+		font-size: 35px;
+		position: fixed;
+		top: 15px;
+		right: 25px;
+		cursor: pointer;
+	}
+	
+	.hide {
+		display: none;
+	}
+	</style>
+</html>

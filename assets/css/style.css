@@ -1,0 +1,549 @@
+/* Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col{
+    padding-left: 8px;
+    padding-right: 8px;
+    float: left;
+}
+.col-sec{
+    width: 50%;
+    float: left;
+}
+.col-third{
+    width: 33.33333%;
+    float: left;
+}
+.col-full{
+    width: 100% !important;
+}
+.text-center{
+    text-align: center;
+}
+.mt16{
+    margin-top: 16px !important;
+}
+.mt8{
+    margin-top: 8px !important;
+}
+
+
+
+/* --------------------Phần Thân----------------------------------------------- */
+#header{
+    height: 46px;
+    background-color: rgb(218, 25, 25);
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: 100000;
+    
+}
+div.suppnav{
+    height:138px;
+    box-shadow: 0 0 10px black;
+}
+#nav > div >a{
+    color:white;
+    text-transform:uppercase;
+}
+ 
+#nav{
+    display: inline-block;
+}
+#nav div a{
+   
+    display:inline-block;
+    padding:0 24px;
+    line-height: 46px;
+    text-decoration:none;
+    border-radius: 18px;
+}
+
+#nav div{
+    display:inline-block;
+    position:relative;
+    
+}
+#nav div:hover .suppnav{
+    display:block;
+    border-radius: 16px;
+}
+#nav .suppnav{
+    display:inline-block;
+    display:list-item;
+    position:absolute;
+    background-color: #fff;
+    display:none;
+    
+}
+
+#nav > div:hover > a{
+    background-color: lightgray;
+    color:black;
+
+}
+#nav .suppnav a{
+    color:black;
+    
+    
+}
+#nav .suppnav a:hover{
+    background-color: lightgray;
+    color:black;
+    
+}
+#nav .mui-down{
+    font-size: 6px;
+}
+
+#nav .suppnav .the{
+    width:118.28px;
+}
+.suppnav{
+    list-style-type: none;
+}
+
+#header .search-btn{
+    float: right;
+    padding: 0 24px;
+}
+#header .tim-kiem{
+    font-size:20px;
+    color: white;
+    line-height: 46px;
+}
+li {
+    font-size: 24px;
+}   
+
+.search-btn-header{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.search-btn:hover {
+    background-color: #ccc;
+    border-radius: 18px;
+}
+.search-btn-modal{
+    display: none
+}
+.search-btn-modal.close {
+    display: none;
+}
+.search-btn-modal.open {
+        display: block;
+        width: 296px;
+        height: 32px;
+        top: 6px;
+        position: relative;
+    }
+
+
+
+
+#slider{
+    margin-top: 46px;
+    padding-top: 50%;
+    background:  linear-gradient(to top,rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('/assets/img/meme.gif') top center / cover no-repeat;
+    position: relative;
+    z-index: 1000;
+  
+
+}
+#slider .text-content{
+    font-weight: 100px;
+    font-size: 23px;
+   
+}
+#slider .text-head{
+    bottom: 194.2px;
+    color:rgb(255, 255, 255);
+    width: 100% ;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position:absolute;
+    font-family:'Inherit', Times, serif ;
+}
+/* fix lại phần header */
+
+/* ------------------ */
+
+
+ .content-section{
+    box-sizing: border-box;
+    width: 800px;
+    padding: 64px 0;
+    margin-left: auto;
+    margin-right:auto;
+    display: none;
+    
+}
+#content .section-heading{
+    font-size: 30px;
+    font-weight:400;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 10px;
+    letter-spacing: 4px;
+    }
+#content .sub-section{
+    font-size: 16px;
+    text-align: center;
+    font-style: italic;
+    color:darkgray;
+    margin: 15px 0;
+}
+#content .about{
+    font-size: 16px;
+    text-align: justify;
+    margin: 15px;
+    font-family: "Lato", sans-serif;
+    line-height: 1.6;  
+     text-align: center;
+}
+
+ .album {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+.anhgif{
+    width: 293px;
+    height: 194px;
+    border-radius: 10px;
+    position: relative;
+}
+#content .anh {
+   width: 293px;
+    height: 194px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+}
+#content .anh:hover{
+    z-index: -1;
+    
+    
+}
+
+#content .anhgif:hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scal(1.2); 
+    z-index: 100;
+    
+}
+
+#content .hinhanh {
+    font-family: 'Times New Roman', Times, serif;
+    width: 339px;
+    text-align: center;
+}
+/* chon hinh anh */
+
+
+
+/* Mua vé */
+.muave{
+background-color: #000;
+height: 700px;
+display: none;
+}
+#content .muave-heading{
+    color:#fff;
+    font-size: 30px;
+    font-weight:400;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 10px;
+    letter-spacing: 4px;
+}
+#content .muave-text{
+    font-size: 16px;
+    text-align: center;
+    font-style: italic;
+    color:darkgray;
+    margin: 15px 0;
+}
+#content .muave-body{
+   background-color: #fff;
+    margin-top: 40px;
+    width: 100%;
+    margin: auto;
+    border-radius:12px ;
+    
+}
+
+    .muave-body a {
+        font-size: 25px;
+        padding: 11px 16px;
+        border-bottom: 1px solid #ddd;
+        border-radius: 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+.muave-body .banhet {
+    background-color: red;
+    padding: 3px 6px;
+    float: right;
+    color: ghostwhite;
+    border-radius: 9px;
+}
+.muave-body .slot {
+    float: right;
+    width: 24px;
+    background-color: black;
+    color: white;
+    border-radius: 105px;
+    text-align: center;
+    line-height: 24px;
+}
+.muave-body a:hover{
+    background-color:orangered;
+    color: white;
+    cursor: pointer;
+}
+.thetour{
+    margin-top: 32px;
+    border-radius: 7px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.thetour-body {
+    width: 400px;
+    
+}
+.thetour-body:hover {
+    transform: scale(1.022);
+}
+.thetourbody{
+    background-color: white;
+    height: 80px;
+}  
+.anh-tour-gif {
+    width: 100%;
+    display: block;
+    height: 320px;
+    top: 0;
+    position: relative;
+}
+ 
+ .anh-tour{
+    width: 400px;
+    display: block;
+    height: 320px;
+    position: absolute;
+    z-index: 1;
+}
+.anh-tour:hover{
+    z-index: -1
+; 
+}
+.anh-tour-gif:hover {
+    z-index: 100;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+
+.tourtext-btn {
+    background-color: #000;
+    color: #ddd;
+    padding: 5px 6px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 auto;
+   
+}
+.tourbtn{
+    display:flex ;
+    align-items: center;
+}
+.tourtext-subhead{
+    margin-bottom: 10px;
+    text-align: center;
+    color: slategray;
+    font-style: italic;
+}
+.tourtext-head{
+   margin-bottom: 10;
+   text-align: center;
+}
+.tourtext-btn:hover{
+    background-color:tomato;
+    color: aliceblue;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.308);
+    align-items: center;
+    justify-content: center;    
+    animation: tradein ease 0.2s;
+    display: none;
+}
+.modal.open{
+    display: flex;
+    z-index: 110000000;
+}
+.modal-container {
+    background-color: white;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 500px; position: relative;
+}
+.ve{
+    padding-right: 14px ;
+}
+header.modal-header {
+    background-color: blueviolet;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 30px;
+}
+.modal-close {
+    position: absolute;
+    right: 0;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+}
+.modal-close .open{
+    display: block;
+}
+
+.modal-close:hover{
+    background-color: #fff;
+    color: #000;
+}
+input.modal-input {
+    display: block;
+    padding: 12px;
+    border: 3px solid #ccc;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 24px;
+    margin-top: 12px;
+}
+.modal-body {
+    padding: 16px;
+}
+button.modal-button {
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 14px;
+    width: 100%;
+}
+button.modal-button:hover{
+background-color: red;
+}
+.modal-footer {
+    display: inline;
+    padding-left: 720px;
+}
+@keyframes tradein{
+ from {
+  opacity: 0;   
+ transform: translateY(-100px)
+ }
+ to {
+ opacity: 1;
+ }
+}
+/* ---------------------------------------------------------------s-------------------------------------------------------- */
+/* Phan hoi */
+
+/* Fix lại phần content */
+
+div#mmenubtn {
+    display: none;
+}
+.notify{
+    display: none;
+}
+.notify.open {
+ height: 200px;
+ background: #000;
+ position: absolute;
+ width: 400px;
+ left: 260px;
+ top:130px;
+ background: rgba(0, 0, 0, 0.9);
+ color: aliceblue;
+ justify-content: center;
+ align-items: center;
+ display: flex ;
+ border-radius: 30px;
+ transition: 3s;
+ animation-duration: 2s;
+ animation: tradein ease 0.1s;
+ font-weight: 300;
+ 
+}
+.notify.err {
+    height: 200px;
+    background: #000;
+    position: absolute;
+    width: 400px;
+    left: 260px;
+    top:130px;
+    background: rgba(0, 0, 0, 0.9);
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    display: flex ;
+    border-radius: 30px;
+    transition: 3s;
+    animation-duration: 2s;
+    font-weight: 400;
+   }
+.signinlink {
+    color: white; 
+}
+.signinlink:hover {
+    color: red;
+    cursor: pointer;
+    scale: 4px;
+}
+.muave.open {
+display: block;
+}
+.album.open{
+ display: flex;
+}
+.modal-footer .a {
+    text-align: center;
+}
+.content-section.open {
+    display: block;
+}
+

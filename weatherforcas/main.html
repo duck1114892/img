@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherForcas</title>
+    <link rel="stylesheet" href="/weatherforcas/img/themify-icons/themify-icons.css">
+    
+</head>
+<body>
+    <input type="text" class="input">
+    <div class="container">
+       <div class="text">
+        <div class="icon-weather"></div>
+        <span class="city">Ha noi</span>
+        <span> ,</span>
+        <span class="country">VIET NAM</span>
+       </div>
+       <div class="weather-box">sunny</div>
+       <div class="temp-box">
+      <span class="temperature">
+        </span> 
+       <span> <sub class="do-c">oC</sub>
+               
+      </span>
+        
+       </div>
+       <div class="more">
+           <div class="vision">
+               <i class="ti-target"></i>
+               <span>no value</span>
+           </div>
+           <div class="wind">
+               <i class="ti-angle-double-right"></i>
+               <span>no value</span>
+           </div>
+           <div class="sun">
+               <i class="ti-thought"></i>
+               <span>no value</span>
+       </div>
+
+      </div> 
+    </div>
+</body>
+</html>
+
+<script>
+    var input = document.querySelector('.input')
+var iconWeather = document.querySelector('.icon-weather')
+var city = document.querySelector('.city')
+var country = document.querySelector('.country')
+var temperature= document.querySelector('.temperature')
+var weatherBox = document.querySelector('.weather-box')
+var changeBackGround = document.querySelector('body')
+var vision = document.querySelector('.vision span')
+var wind = document.querySelector('.wind span')
+var sun = document.querySelector('.sun span')
+async function addvalue( changeApi) {
+var link = `http://api.weatherapi.com/v1/current.json?key=4aaae8ec5e9940ce94b32213221609&q=${changeApi}&aqi=no`
+let data = await fetch(link)
+
+.then(function(res) {
+    return res.json ()
+})
+ 
+ console.log(data)
+ country.innerText = data.location.country
+ city.innerText = data.location.name
+ iconWeather.innerHTML = `<img src="${data.current.condition.icon}" alt="">`
+ let temp = temperature.innerText = data.current.temp_c
+ weatherBox.innerText = data.current.condition.text
+wind.innerText = data.current.wind_kph + 'kph'
+vision.innerText = data.current.vis_km + 'km'
+sun.innerText = data.current.uv
+
+
+ if(temp < 26){
+   changeBackGround.setAttribute('class', 'warm')
+ }
+ if(temp < 20){
+    changeBackGround.setAttribute('class', 'cold')
+ }
+ if(temp > 26){
+    changeBackGround.setAttribute('class', 'hot')
+ }
+}
+input.addEventListener('keypress', function(e){
+    if(e.code === 'Enter') {
+        let changeApi = input.value.trim()
+        addvalue(changeApi)
+        input.value = ''
+    }
+})
+addvalue('ha noi')
+
+</script>
+
+
+
+<style>
+    *{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1) ), url(/weatherforcas/img/7304594.jpg) no-repeat center/cover;
+    transition: 0.5s;
+}
+   
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+ 
+    
+}
+.text{
+    text-align: center;
+    margin: 20px 20px;
+    font-size: 30px;
+    color: aliceblue;
+    text-shadow: 2px 2px rgba(0,0,0,0.7);
+}
+.temp-box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.temperature{
+    margin-top: 20px;
+    font-size: 20px;
+    color:aliceblue;
+    font-size: 120px;
+    text-shadow: 3px 3px black;
+}
+.input{
+    align-self: center;
+    width: 600px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+.do-c {
+    left:40px;
+    top:12px;
+    color: aliceblue;
+    text-shadow: 2px 2px rgba(black);
+    font-size: 40px
+}
+.input {
+    border-radius: 0 20px 0 20px;
+    padding-left: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.636);
+}
+.input:focus{
+    background-color: aliceblue;
+     border-radius: 20px 0 20px 0;
+     border: none;
+     overflow: hidden;
+}
+.city, .country  {
+    font-size: 60px;
+}
+.weather-box {
+    margin: 20px 20px;
+    font-size: 40px;
+    color: aliceblue;
+    text-shadow: 2px 2px rgba(0,0,0,0.7);
+}
+body.hot  {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1) ), url(/weatherforcas/img/7304594.jpg) no-repeat center/cover;
+    transition: 0.6s;
+}
+body.cold  {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1) ), url(/weatherforcas/img/download.jpg) no-repeat center/cover;
+    transition: 0.6s;
+}
+body.warm {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1) ), url(/weatherforcas/img/wallpapersden.com_anime-girl-hd-post-apocalyptic_2880x1800.jpg) no-repeat center/cover;
+    transition: 0.6s;
+}
+.info-tem {
+    display: flex;
+    
+}
+.more {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    width:  100%;
+    margin-top:100px;
+    text-shadow: 2px 2px rgba(0,0,0,0.3)
+}
+.more span,i {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin:12px 0;
+}
+</style>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/font/themify-icons/themify-icons.css">
+    <title>Đăng Ký</title>
+</head>
+<body>
+    <div class="modal  js-modal open">
+        <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close">
+            <i class="ti-close"></i>
+        </div>
+            <header class="modal-header">
+               <div class="ve" ><i class="ti-user"></i></div>
+                Đăng Ký
+            </header>
+            <div class="modal-body">
+                <label for="modal-soluong" class="modal-cart">
+                    <i class="ti-face-smile"></i>
+                    Tài Khoản
+                </label>
+                <div class="notify">
+                </div>
+             
+            <input type="text" id="modal-user" class="modal-input"  placeholder="Tên Tài Khoản">
+            <label for="modal-nhapemail" class="modal-cart">
+                <i class="ti-lock"></i>
+               Mật Khẩu
+            </label>
+        <input type="password" id="modal-password" class="modal-input"  placeholder="Vui Lòng Nhập Mật Khẩu">
+        <label for="modal-nhapemail" class="modal-cart">
+            <i class="ti-lock"></i>
+          Nhập Lại Mật Khẩu
+        </label>
+    <input type="password" id="modal-password-again" class="modal-input"  placeholder="Vui Lòng Lại Nhập Mật Khẩu">
+        <button class="modal-button">
+            <i class="ti-check"></i>
+            Đăng Ký
+        </button>
+            </div>
+            
+          
+      
+        </div>
+    </div>
+</body>
+</html>
+<script>
+  
+    async function apidata () {
+    var apidata = 'http://localhost:3000/info'
+    var getapidata = await fetch(apidata)
+    .then(function(resApi){
+      return resApi.json()
+     
+    })
+    .catch(function(){  
+        const notify = document.querySelector('.notify')
+        notify.classList.add('open')
+        notify.innerText = 'Không có dữ liệu từ máy chủ'
+    })
+    if(getapidata) {
+          
+          const users = document.querySelector('#modal-user')
+          const btn = document.querySelector('.modal-button')
+          const password =document.querySelector('#modal-password')
+          const passwordAgain = document.querySelector('#modal-password-again')
+          const notify = document.querySelector('.notify')
+          const htmls = document.querySelector('html')
+          
+          htmls.addEventListener('keypress', function(e) {
+              if(e.code === 'Enter') {
+                  activeApi()
+              }
+          }) 
+          btn.addEventListener('click',function() {
+              activeApi()
+          }) 
+      
+          function activeApi(){
+          let usersIpnut = users.value.trim()
+          let passwordInput = password.value.trim()
+          let passwordAgainInput = passwordAgain.value.trim()
+          console.log(getapidata.length)
+         for(let i = 0 ; i <= getapidata.length; i ++) { 
+          if(usersIpnut == getapidata[i].name) {
+          notify.classList.add('open')
+          notify.innerText = 'Tên Đăng Nhập Đã Tồn Tại'
+          setTimeout(function(){
+          notify.classList.remove('open')
+          },2000)
+        }
+        break;
+      }
+       if(passwordInput && passwordAgainInput && usersIpnut ){
+    
+          if( passwordInput === passwordAgainInput && passwordInput.length > 4) {
+          postApi()
+          notify.classList.add('open')
+          notify.innerText = 'Đăng Ký Thành Công'
+          setTimeout(() => {
+              notify.classList.remove('open')
+              location.href='/index.html'
+          },4000);
+         
+          }
+          
+          if(passwordInput.length < 4){
+          notify.classList.add('open')
+          notify.innerText = 'Mật Khẩu Nhập Lại Không Khớp Hoặc Quá Ngắn'
+          setTimeout(function(){
+          notify.classList.remove('open')
+          
+          },2000)
+              }
+      
+          
+          
+      
+      
+              
+          }
+              else{
+          notify.classList.add('open')
+          notify.innerText = 'Vui Lòng Nhập Tên Hoặc Mật Khẩu'
+          setTimeout(function(){
+          notify.classList.remove('open')
+         
+          },2000)
+              }
+          }
+          function postApi() {
+          let usersIpnut = users.value.trim()
+          let passwordInput = password.value.trim()
+          let passwordAgainInput = passwordAgain.value.trim()
+              const data = {
+                   name: usersIpnut,
+                   password:passwordAgainInput
+                  };
+      
+      fetch(' http://localhost:3000/info', {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      }
+      } 
+}
+   
+   apidata()
+   
+   
+</script>
+<style>
+    .modal{
+    background:  linear-gradient(to top,rgba(0,0,0,0.2), rgba(0,0,0,0.5)),url('/assets/img/kiminonawa.gif') top center / cover no-repeat;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.308);
+    align-items: center;
+    justify-content: center;    
+    animation: tradein ease 0.2s;
+    display: none;
+}
+.modal.open{
+    display: flex;
+    z-index: 110000000;
+}
+.modal-container {
+    background-color: white;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 500px; position: relative;
+}
+.ve{
+    padding-right: 14px ;
+}
+header.modal-header {
+    background-color: blueviolet;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 30px;
+}
+.modal-close {
+    position: absolute;
+    right: 0;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+}
+.modal-close .open{
+    display: block;
+}
+
+.modal-close:hover{
+    background-color: #fff;
+    color: #000;
+}
+input.modal-input {
+    display: block;
+    padding: 12px;
+    border: 3px solid #ccc;
+    width: 97%;
+    font-size: 16px;
+    margin-bottom: 24px;
+    margin-top: 12px;
+}
+.modal-body {
+    padding: 16px;
+}
+button.modal-button {
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 14px;
+    width: 100%;
+}
+button.modal-button:hover{
+background-color: red;
+}
+.modal-footer {
+    display: inline;
+    padding-left: 720px;
+}
+.notify{
+    display: none;
+}
+.notify.open {
+ height: 200px;
+ background: #000;
+ position: absolute;
+ width: 400px;
+ left: 260px;
+ top:130px;
+ background: rgba(0, 0, 0, 0.9);
+ color: aliceblue;
+ justify-content: center;
+ align-items: center;
+ display: flex ;
+ border-radius: 30px;
+ transition: 3s;
+ animation-duration: 2s;
+ animation: tradein ease 0.1s;
+ font-weight: 300;
+ 
+}
+.notify.err {
+    height: 200px;
+    background: #000;
+    position: absolute;
+    width: 400px;
+    left: 260px;
+    top:130px;
+    background: rgba(0, 0, 0, 0.9);
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    display: flex ;
+    border-radius: 30px;
+    transition: 3s;
+    animation-duration: 2s;
+    font-weight: 400;
+   }
+</style>
+
+   

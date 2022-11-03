@@ -1,0 +1,143 @@
+@media(max-width: 300px){
+    #nav div {
+        display: block;
+    }
+    #header .search-btn{
+    display: none;
+}
+    #header {
+       
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100000;
+        width: 100%;
+        overflow: hidden;
+    }
+    .tourbtn{
+        display:flex ;
+        align-items: center;
+    }
+    .tourtext-btn {
+        background-color: #000;
+        color: #ddd;
+        padding: 5px 2px;
+        text-decoration: none;
+        border-radius: 4px;
+       margin: auto;
+       padding: auto;
+       width: 27%;
+       display: block;
+    }
+    .anh-tour {
+        width: 348px;
+        display: block;
+        height: 320px;
+    }
+
+    .thetour-body {
+        width: 87%;
+        padding: 0 6px;
+        margin-top: 12px;
+    }
+    #content .content-section {
+        box-sizing: border-box;
+        width: auto; 
+        padding: 64px 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #slider .text-head {
+        bottom: 79.19999999999999px;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        position: absolute;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 26px;
+    }
+    #content .album {
+        margin-top: 32px;
+        overflow: hidden;
+        display: flex;
+        /* justify-content: space-around; */
+        flex-wrap: wrap;
+        margin-right: 12px;
+    }
+    #content .hinhanh {
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+         float: none;
+        
+         max-height: 400px;
+    }
+    #content .anh {
+        min-height: 224;
+        border-radius: 10px;
+    }
+    .muave {
+        background-color: #000;
+        height: 1518px;
+    }
+    #header .mobile-menu-btn{
+        float: right;
+        padding: 13px 24px;
+        color:white;
+        position: absolute;
+        top :0;
+        right: 0;
+        display: block;
+    }
+    #header .mobile-menu-btn:hover{
+        background-color: orangered;
+    }
+    
+    .modal-footer{
+        padding-left: 0px;
+    }
+  
+    #nav > a{
+        display: block;
+    }
+    #nav {
+        display: block;
+    }
+    #nav .suppnav {
+        display: block;
+        display: list-item;
+        background-color: black;
+      
+        display: none;
+        position: initial;
+    }
+    
+element.style {
+}
+#nav > div:hover > a {
+    background-color: lightgray;
+    color: black;
+}
+#nav div a {
+    color: #fff;
+    padding: 0 24px;
+    line-height: 46px;
+    text-decoration: none;
+    display: block;
+}
+#nav .suppnav .the {
+    width: 100%;
+}
+#nav .suppnav a {
+    color: white;
+}
+#nav .suppnav a:hover {
+    background-color: lightgray;
+    color: black;
+}
+#nav .suppnav a:hover {
+     column-rule: 0pc;
+}
+}
